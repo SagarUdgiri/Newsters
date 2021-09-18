@@ -7,6 +7,7 @@ export default class App extends Component {
   render() {
     return (
       <Router>
+        <div>
         <Navbar/>
         <Switch>
         <Route exact path="/"> <News key="general" pageSize={6} country="in" ctg="general"/></Route>
@@ -18,6 +19,7 @@ export default class App extends Component {
         <Route exact path="/sports"> <News key="sports" pageSize={6} country="in" ctg="sports"/></Route>
         <Route exact path="/technology"> <News key="technology" pageSize={6} country="in" ctg="technology"/></Route>
         </Switch>
+        </div>
       </Router>
     )
   }

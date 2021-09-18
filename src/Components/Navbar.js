@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Link,BrowserRouter as Router } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 
 export class Navbar extends Component {
     render() {
         return (
             <div>
-                <Router>
+                
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                     <div className="container-fluid">
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,14 +19,14 @@ export class Navbar extends Component {
                             <li className="nav-item"><Link className="nav-link" to="/general">General</Link></li>
                             <li className="nav-item"><Link className="nav-link" to="/health">Health</Link></li>
                             <li className="nav-item"><Link className="nav-link" to="/science">Science</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="/spoets">Sports</Link></li>
+                            <li className="nav-item"><Link className="nav-link" to="/sports">Sports</Link></li>
                             <li className="nav-item"><Link className="nav-link" to="/technology">Technology</Link></li>
                         </ul>
 
                         </div>
                     </div>
                 </nav>
-                </Router>
+                
             </div>
         )
     }

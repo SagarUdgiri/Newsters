@@ -25,7 +25,7 @@ export class NewsItem extends Component {
                     <h5 className="card-title">
                       {newz.title}{" "}
                     </h5>
-                    <p><span class="badge rounded-pill bg-danger">{newz.source.name}</span></p>
+                    <p><span className="badge rounded-pill bg-danger">{newz.source.name}</span></p>
                     <p className="card-text">{newz.description}</p>
                     <p className="card-text">
                       <small className="text-muted">
