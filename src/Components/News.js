@@ -37,12 +37,16 @@ export class News extends Component {
     }
 
     async updateNews(pageNo){
-
-        let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.ctg}&apiKey=2866f892915d4382b267bb53a3f87fb9&pagesize=${this.props.pageSize}&page=${pageNo}`;
+        this.props.setProgress(10);
+        let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.ctg}&apiKey=${this.props.apikey}&pagesize=${this.props.pageSize}&page=${pageNo}`;
+        this.setState({loading:true});
         let data= await fetch(url);
+        this.props.setProgress(30);
         let parsedData = await data.json();
+        this.props.setProgress(70);
         console.log(parsedData)
         this.setState({articles:this.state.articles.concat(parsedData.articles) , totalResults:parsedData.totalResults,loading:false})
+        this.props.setProgress(100);
     }
 
     async componentDidMount(){
@@ -73,7 +77,7 @@ export class News extends Component {
             <>
                 <div className="container my-3">
                     <h2 className="text-center my-5">NewSters - Top {this.capTitle(this.props.ctg)} Headlines</h2>
-                    {/* {this.state.loading && <Spinner/>} */}
+                    {this.state.loading && <Spinner/>}
                         <InfiniteScroll
                                         dataLength={this.state.articles.length}
                                         next={this.fetchMoreData}
