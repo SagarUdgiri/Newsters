@@ -61,16 +61,6 @@ export class News extends Component {
         this.updateNews(this.state.page)
       };
 
-    // handleNextClick = async () =>{
-    //     this.updateNews(this.state.page + 1)
-    //     this.setState({page: this.state.page + 1});
-    // }
-    
-    // handlePrevClick = async () =>{
-    //     this.updateNews(this.state.page - 1)
-    //     this.setState({page: this.state.page - 1});
-    // }
-
     render() {
 
         return (
@@ -78,22 +68,17 @@ export class News extends Component {
                 <div className="container my-3">
                     <h2 className="text-center my-5">NewSters - Top {this.capTitle(this.props.ctg)} Headlines</h2>
                     {this.state.loading && <Spinner/>}
-                        <InfiniteScroll
-                                        dataLength={this.state.articles.length}
-                                        next={this.fetchMoreData}
-                                        hasMore={this.state.articles.length !== this.state.totalResults}
-                                        loader={<Spinner/>}
-                                        >
+                    <InfiniteScroll
+                        dataLength={this.state.articles.length}
+                        next={this.fetchMoreData}
+                        hasMore={this.state.articles.length !== this.state.totalResults}
+                        loader={<Spinner/>}
+                        >
                     <div className="container">
-                    <NewsItem news={this.state.articles}></NewsItem>
-                    </div>
-                    
+                        <NewsItem news={this.state.articles}></NewsItem>
+                    </div>                   
                     </InfiniteScroll>
                 </div>
-                {/* <div className="container d-flex justify-content-between my-3">
-                    <button type="button" disabled={this.state.page<=1} className="btn btn-success" onClick={this.handlePrevClick}>&larr; Previous</button>
-                    <button type="button" disabled={this.state.page + 1 > Math.ceil(this.state.totalResults/this.props.pageSize)} className="btn btn-success" onClick={this.handleNextClick}>Next &rarr;</button>
-                </div> */}
             </>
         )
     }
