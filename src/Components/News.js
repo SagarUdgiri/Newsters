@@ -66,7 +66,9 @@ export class News extends Component {
         return (
             <>
                 <div className="container my-3">
-                    <h2 className="text-center my-5">NewSters - Top {this.capTitle(this.props.ctg)} Headlines</h2>
+                    <h2 className="text-center " style={{marginTop: '80px',marginBottom: '20px',color:this.props.mode==='dark'?'white':'black'}}>
+                        NewSters - Top {this.capTitle(this.props.ctg)} Headlines
+                    </h2>
                     {this.state.loading && <Spinner/>}
                     <InfiniteScroll
                         dataLength={this.state.articles.length}
@@ -75,7 +77,7 @@ export class News extends Component {
                         loader={<Spinner/>}
                         >
                     <div className="container">
-                        <NewsItem news={this.state.articles}></NewsItem>
+                        <NewsItem mode={this.props.mode} news={this.state.articles}></NewsItem>
                     </div>                   
                     </InfiniteScroll>
                 </div>
